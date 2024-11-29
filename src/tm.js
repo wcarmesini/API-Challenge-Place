@@ -91,14 +91,12 @@ export async function fetchPlayerData(id_clube) {
 
           if (linkElement.length) {
 
-            const content = linkElement.find('a').attr('title')?.trim() || 'N/A';
             const clubName = linkElement.find('img').attr('title')?.trim() || 'N/A';
             const clubIdMatch = linkElement.find('a').attr('href')?.match(/verein\/(\d+)/);
             const clubId = clubIdMatch ? clubIdMatch[1] : 'N/A';
             const clubImageUrl = linkElement.find('img').attr('src') || 'N/A';
 
             return {
-              content,
               signed_from_club_name: clubName,
               signed_from_club_id: clubId,
               signed_from_club_image_url: clubImageUrl
